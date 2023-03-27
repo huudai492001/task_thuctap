@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('status', ['1', '0'])->default('1');
             $table->boolean('display');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->string('created_by')->default('null');
+            $table->string('created_by')->default('admin');
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }

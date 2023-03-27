@@ -35,7 +35,11 @@
                 </div>
             </div>
         </div>
-
+        @if(Session::has('success'))
+            <div class="alert alert-success" role="alert">
+                {{Session::get('success')}}
+            </div>
+        @endif
         <div class="card border-0 shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
@@ -68,13 +72,12 @@
                                         No parent id
                                     @endif
                                 </td>
+                                <td>{{$categorie->status}}</td>
                                 <td>
-                                    {{$categorie->display}}
-
-                                </td>  <td>
-
-                                    @if($categorie->status == 1)
-                                        <i class='fas fa-check' style="  font-size: 20px;color: #63de05;"></i>
+                                    @if($categorie->display == 1)
+                                        <i class='fas fa-check' style=" font-size: 20px;color: #63de05;"></i>
+                                    @elseif($categorie->display == 0)
+                                        <i class='far fa-window-close' style=" font-size: 20px;color: red;"></i>
                                     @endif
                                 </td>
                                 <td>
@@ -85,9 +88,9 @@
                                 </td>
                                 <td>
 
-                                    <a href="" style="font-size: 25px; padding: 5px"> <ion-icon name="create-outline"></ion-icon> </a>
+                                    <a href="{{route('category.edit', $categorie->id)}}" style="color: #3ae20e;font-size: 20px;"> <i class='far fa-edit'></i> </a>
 
-                                    <a href="" style="font-size: 25px; padding: 5px"> <ion-icon name="trash-outline"></ion-icon></a>
+                                    <a href="{{route('category.delete',$categorie->id )}}" style="font-size: 20px; color: red; margin-left: 10px"> <i class='fas fa-trash'></i></a>
                                     {{--                            <a href="javascript:void(0)" style="font-size: 25px; padding: 5px;" data-id="{{$categorie->id}}" class="category_delete" >--}}
                                     {{--                                <ion-icon name="trash-outline"></ion-icon> </a>--}}
                                 </td>
@@ -95,8 +98,6 @@
                         @endforeach
 
                         <!-- End of Item -->
-
-
                         </tbody>
                     </table>
                 </div>
