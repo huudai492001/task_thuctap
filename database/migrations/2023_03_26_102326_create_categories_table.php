@@ -16,8 +16,8 @@ return new class extends Migration
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
-            $table->enum('status', ['1', '0'])->default('1');
-            $table->boolean('display');
+//            $table->enum('status', ['1', '0'])->default('1');
+            $table->boolean('display')->default(1);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('created_by')->default('admin');
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

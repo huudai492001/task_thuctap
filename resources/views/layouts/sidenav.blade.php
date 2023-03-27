@@ -60,7 +60,7 @@
         <div class="multi-level collapse show" role="list" id="submenu-laravel" aria-expanded="false">
           <ul class="flex-column nav">
             <li class="nav-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
-              <a href="/profile" class="nav-link">
+              <a href="{{route('user.profile')}}" class="nav-link">
                 <span class="sidebar-text">Profile</span>
               </a>
             </li>

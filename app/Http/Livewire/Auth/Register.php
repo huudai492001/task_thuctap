@@ -25,7 +25,7 @@ class Register extends Component
     {
         $this->validate(['email'=>'required|email:rfc,dns|unique:users']);
     }
-    
+
     public function register()
     {
         $this->validate([
@@ -36,12 +36,12 @@ class Register extends Component
         $user = User::create([
             'email' =>$this->email,
             'password' => Hash::make($this->password),
+            'display' =>'1',
             'remember_token' => Str::random(10),
         ]);
 
         auth()->login($user);
-
-        return redirect('/profile');
+        return redirect()->route('user.add');
     }
 
     public function render()

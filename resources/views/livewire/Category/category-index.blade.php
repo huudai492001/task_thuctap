@@ -49,7 +49,6 @@
                             <th class="border-0 rounded-start">#</th>
                             <th class="border-0">Category Name</th>
                             <th class="border-0">Parent Category Name</th>
-                            <th class="border-0">Status</th>
                             <th class="border-0">Display</th>
                             <th class="border-0">Category Created</th>
                             <th class="border-0">Created By</th>
@@ -72,7 +71,7 @@
                                         No parent id
                                     @endif
                                 </td>
-                                <td>{{$categorie->status}}</td>
+
                                 <td>
                                     @if($categorie->display == 1)
                                         <i class='fas fa-check' style=" font-size: 20px;color: #63de05;"></i>

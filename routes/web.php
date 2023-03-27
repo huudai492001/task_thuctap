@@ -27,6 +27,7 @@ use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\Users;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,12 @@ Route::middleware('auth')->group(function () {
 //    Product Controller
     Route::prefix('product')->group(function (){
         Route::get('index', [ProductController::class, 'index'])->name('product.index');
+    });
+//    User Controller
+    Route::prefix('user')->group(function (){
+       Route::get('profile', [UserController::class, 'index'])->name('user.profile');
+       Route::get('add', [UserController::class, 'add'])->name('user.add');
+       Route::post('store', [UserController::class, 'store'])->name('user.store');
     });
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');

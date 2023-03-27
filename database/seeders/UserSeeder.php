@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'User',
             'email' => 'admin@volt.com',
+            'display' =>'1' ,
             'password' => Hash::make('secret'),
         ]);
     }
